@@ -1,0 +1,51 @@
+{
+    "name": "rahmatwaisi/zarinpal",
+    "description": "Zarinpal is a laravel package to easily use zarinpal.com payment services in your applications",
+    "type": "library",
+    "keywords": [
+        "zarinpal",
+        "gateway",
+        "زرینپال",
+        "زرین پال",
+        "درگاه پرداخت زرینپال",
+        "درگاه پرداخت زرین پال",
+        "zarinpal-laravel",
+        "laravel",
+        "لاراول",
+        "درگاه پرداخت زرین پال لاراول",
+        "درگاه پرداخت زرینپال لاراول",
+        "زرینپال لاراول",
+        "لاراول زرینپال",
+        "pay",
+        "payment",
+        "bank",
+        "zarinpal.com"
+    ],
+    "require": {
+        "php": "^7.2.5|^8.0",
+        "guzzlehttp/guzzle": "^7"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rahmat Waisi",
+            "email": "rahmatwaisi@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/mr648/zarinpal/issues",
+        "source": "https://github.com/mr648/zarinpal"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RahmatWaisi\\Zarinpal\\Providers\\ZarinpalServiceProvider"
+            ],
+            "aliases": {
+                "POL": "RahmatWaisi\\Zarinpal\\Facade\\Zarinpal"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable" : true
+}
