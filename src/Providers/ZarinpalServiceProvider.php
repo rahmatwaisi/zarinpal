@@ -36,7 +36,11 @@ class ZarinpalServiceProvider extends ServiceProvider
     {
         $config = __DIR__ . '/../config/zarinpal.php';
 
+        $callbackController = __DIR__ . '/../Http/Controllers/PaymentCallbackController.php';
 
+        $this->publishes([
+            $callbackController => app_path('Http/Controllers/Zarinpal/PaymentCallbackController.php'),
+        ],'zarinpal-controller');
 
         $this->publishes([
             $config => config_path('zarinpal.php'),
