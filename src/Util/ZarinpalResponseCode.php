@@ -1,6 +1,6 @@
 <?php
 
-namespace RahmatWaisi\Zarinpal\Exceptions;
+namespace RahmatWaisi\Zarinpal\Util;
 
 class ZarinpalResponseCode
 {

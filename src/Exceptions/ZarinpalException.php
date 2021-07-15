@@ -2,6 +2,8 @@
 
 namespace RahmatWaisi\Zarinpal\Exceptions;
 
+use RahmatWaisi\Zarinpal\Util\ZarinpalResponseCode;
+
 class ZarinpalException extends \Exception
 {
     /**

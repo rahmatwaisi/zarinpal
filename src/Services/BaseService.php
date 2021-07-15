@@ -4,7 +4,7 @@ namespace RahmatWaisi\Zarinpal\Services;
 
 use Illuminate\Http\Response;
 use RahmatWaisi\Zarinpal\Exceptions\ZarinpalException;
-use RahmatWaisi\Zarinpal\Exceptions\ZarinpalResponseCode;
+use RahmatWaisi\Zarinpal\Util\ZarinpalResponseCode;
 use RahmatWaisi\Zarinpal\Traits\GetConfigKey;
 use RahmatWaisi\Zarinpal\Traits\HttpClient;
 
