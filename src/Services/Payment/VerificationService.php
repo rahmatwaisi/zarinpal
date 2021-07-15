@@ -23,7 +23,7 @@ class VerificationService extends BaseService
     {
         $parameters = [
             'merchant_id' => $this->getConfigKey('zarinpal.merchant_id'),
-            'price' => $price,
+            'amount' => $price,
             'authority' => $authority,
         ];
 
