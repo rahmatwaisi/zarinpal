@@ -2,6 +2,7 @@
 
 namespace RahmatWaisi\Zarinpal\Services;
 
+use GuzzleHttp\RequestOptions;
 use Illuminate\Http\Response;
 use RahmatWaisi\Zarinpal\Exceptions\ZarinpalException;
 use RahmatWaisi\Zarinpal\Util\ZarinpalResponseCode;
@@ -14,12 +15,68 @@ abstract class BaseService
     use GetConfigKey;
 
     /**
-     * Send request to server
+     * Prepares request and sends it to server
      *
+     * @param string $requestOption request body
      * @param array $parameters
+     * @param array|null $headers
      * @return mixed
      */
-    abstract public function request(array $parameters);
+    private function request(array $parameters, string $requestOption, array $headers = null)
+    {
+        $options[$requestOption] = $parameters;
+        if (!is_null($headers) && !empty($headers))
+            $options['headers'] = $headers;
+
+        return $this->sendRequest($options);
+    }
+
+    /**
+     * Prepares json request and sends it to server
+     *
+     * @param array $parameters
+     * @param array|null $headers
+     * @return mixed
+     */
+    public function jsonRequest(array $parameters, array $headers = null)
+    {
+        return $this->request($parameters, RequestOptions::JSON, $headers);
+    }
+
+    /**
+     * Prepares form request and sends it to server
+     *
+     * @param array $parameters
+     * @param array|null $headers
+     * @return mixed
+     */
+    public function formRequest(array $parameters, array $headers = null)
+    {
+        return $this->request($parameters, RequestOptions::FORM_PARAMS, $headers);
+    }
+
+    /**
+     * Prepares multipart request and sends it to server
+     *
+     * @param array $parameters
+     * @param array|null $headers
+     * @return mixed
+     */
+    public function multipartRequest(array $parameters, array $headers = null)
+    {
+        return $this->request($parameters, RequestOptions::MULTIPART, $headers);
+    }
+
+
+    /**
+     * Sends request to server
+     * should use url() method
+     *
+     * @param array $options
+     * @return mixed
+     * @see BaseService::url()
+     */
+    abstract public function sendRequest(array $options);
 
     /**
      * @param $responseResult
@@ -47,7 +104,7 @@ abstract class BaseService
     {
         if ($response->getStatusCode() == Response::HTTP_OK) {
             if ($response->getBody()) {
-                $result = json_decode($response->getBody());
+                $result = json_decode($response->getBody()->getContents());
                 if (in_array($result->code, [ZarinpalResponseCode::SUCCESS, ZarinpalResponseCode::VERIFIED])) {
                     return $this->valuesOf($result);
                 }
