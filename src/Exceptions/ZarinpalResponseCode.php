@@ -22,6 +22,7 @@ class ZarinpalResponseCode
     const UNEXPECTED_SERVER_EXCEPTION = -52;
     const LACK_OF_AUTHORITY_OWNERSHIP = -53;
     const INVALID_AUTHORITY = -54;
+    const SERVER_ERROR = 500;
     const SUCCESS = 100;
     const VERIFIED = 101;
 
@@ -55,6 +56,7 @@ class ZarinpalResponseCode
         self::UNEXPECTED_SERVER_EXCEPTION => 'خطای غیرمنتظره، با تیم پشتبانی زرین پال تماس بگیرید',
         self::LACK_OF_AUTHORITY_OWNERSHIP => 'کد اعتبارسنجی ارسال شده متعلق به درگاه پرداخت شما نیست',
         self::INVALID_AUTHORITY => 'کد اعتبار سنجی نامعتبر',
+        self::SERVER_ERROR => 'مشکل در برقراری ارتباط با سرور',
     ];
 
     /**
