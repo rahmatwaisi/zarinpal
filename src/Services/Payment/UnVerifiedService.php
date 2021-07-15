@@ -10,13 +10,12 @@ use RahmatWaisi\Zarinpal\Services\BaseService;
 class UnVerifiedService extends BaseService
 {
     /**
-     * Reverses a payment using $token
+     * Gets the list of unverified transactions
      *
-     * @param string $authority
      * @return array|mixed
      * @throws ZarinpalException
      */
-    public function refund(string $authority)
+    public function getList()
     {
         $parameters = [
             'merchant_id' => $this->getConfigKey('zarinpal.merchant_id'),
@@ -50,6 +49,6 @@ class UnVerifiedService extends BaseService
      */
     public function url(): string
     {
-        return $this->getConfigKey('zarinpal.apis.refund');
+        return $this->getConfigKey('zarinpal.apis.unverified');
     }
 }

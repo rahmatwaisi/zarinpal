@@ -46,4 +46,46 @@ class ZarinpalService
         $this->unVerifiedService = new UnVerifiedService();
         $this->verificationService = new VerificationService();
     }
+
+    /**
+     * @throws Exceptions\ZarinpalException
+     */
+    public function authority($price, string $description, string $callBack = null, string $mobile = null, string $email = null)
+    {
+        return $this->authorityService->getAuthority($price, $description, $callBack, $mobile, $email);
+    }
+
+    /**
+     * Redirects user to payment page
+     * @param string $authority
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function pay(string $authority)
+    {
+        return $this->paymentService->pay($authority);
+    }
+
+    /**
+     * @throws Exceptions\ZarinpalException
+     */
+    public function verify($price, string $authority)
+    {
+        return $this->verificationService->verifyPayment($price, $authority);
+    }
+
+    /**
+     * @throws Exceptions\ZarinpalException
+     */
+    public function refund(string $authority)
+    {
+        return $this->refundService->refund($authority);
+    }
+
+    /**
+     * @throws Exceptions\ZarinpalException
+     */
+    public function getListOfUnverifiedTransactions()
+    {
+        return $this->unVerifiedService->getList();
+    }
 }
