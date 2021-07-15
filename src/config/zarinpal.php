@@ -12,7 +12,7 @@ return [
      * callback url to process payment results after redirecting from payment page
      */
 
-    'callback_route' => '/payments/callback',
+    'callback_route' => '/zarinpal/payments/callback',
 
 
     /**
