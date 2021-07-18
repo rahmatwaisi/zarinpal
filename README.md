@@ -2,10 +2,9 @@
 
 <div align="center">
 <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/mr648/zarinpal?style=for-the-badge">
-<img alt="Packagist License" src="https://img.shields.io/packagist/l/rahmatwaisi/zarinpal?style=for-the-badge">
+<img alt="License" src="https://img.shields.io/github/license/mr648/zarinpal?style=for-the-badge">
 <img alt="Packagist Version" src="https://img.shields.io/packagist/v/rahmatwaisi/zarinpal?style=for-the-badge">
 <img alt="Total Downloads" src="https://img.shields.io/packagist/dt/rahmatwaisi/zarinpal?logo=composer&&color=green&&style=for-the-badge">
-<img alt="Twitter" src="https://img.shields.io/twitter/follow/rahmatwaisi?logo=twitter&&color=blueviolet&&style=for-the-badge" alt="Twitter"></a>  
 </div>
 
 <div dir="rtl">
