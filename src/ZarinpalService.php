@@ -75,6 +75,7 @@ class ZarinpalService
 
     /**
      * @throws Exceptions\ZarinpalException
+     * @throws Exceptions\ServiceUnavailable
      */
     public function refund(string $authority)
     {
@@ -83,6 +84,7 @@ class ZarinpalService
 
     /**
      * @throws Exceptions\ZarinpalException
+     * @throws Exceptions\ServiceUnavailable
      */
     public function getListOfUnverifiedTransactions()
     {
