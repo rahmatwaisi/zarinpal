@@ -34,7 +34,7 @@ class AuthorityService extends BaseService
             'description' => $description,
             'merchant_id' => $this->getConfigKey('zarinpal.merchant_id'),
             'currency' => $this->getConfigKey('zarinpal.currency'),
-            'callback_url' => $callBack ?? route($this->getConfigKey('zarinpal.callback_route')),
+            'callback_url' => $callBack ?? url($this->getConfigKey('zarinpal.callback_url')),
         ];
 
         $metadata = [];
