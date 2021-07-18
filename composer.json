@@ -42,7 +42,7 @@
                 "RahmatWaisi\\Zarinpal\\Providers\\ZarinpalServiceProvider"
             ],
             "aliases": {
-                "POL": "RahmatWaisi\\Zarinpal\\Facade\\Zarinpal"
+                "Zarinpal": "RahmatWaisi\\Zarinpal\\Facade\\Zarinpal"
             }
         }
     },
