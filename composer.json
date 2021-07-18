@@ -32,6 +32,11 @@
             "email": "rahmatwaisi@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "RahmatWaisi\\Zarinpal\\": "src/"
+        }
+    },
     "support": {
         "issues": "https://github.com/mr648/zarinpal/issues",
         "source": "https://github.com/mr648/zarinpal"
