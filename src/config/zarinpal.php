@@ -27,6 +27,11 @@ return [
         'refund' => 'https://api.zarinpal.com/pg/v4/payment/refund.json'
     ],
 
+    'sandbox' => [
+        'authority' => 'https://sandbox.zarinpal.com/pg/v4/payment/request.json',
+        'payment' => 'https://sandbox.zarinpal.com/pg/v4/payment/verify.json',
+        'verify' => 'https://sandbox.zarinpal.com/pg/StartPay/',
+    ],
 
     /**
      * Default currency to be used in payments

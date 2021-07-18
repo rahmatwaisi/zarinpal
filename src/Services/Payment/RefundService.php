@@ -4,6 +4,8 @@
 namespace RahmatWaisi\Zarinpal\Services\Payment;
 
 
+use Illuminate\Support\Facades\App;
+use RahmatWaisi\Zarinpal\Exceptions\ServiceUnavailable;
 use RahmatWaisi\Zarinpal\Exceptions\ZarinpalException;
 use RahmatWaisi\Zarinpal\Services\BaseService;
 
@@ -14,13 +16,18 @@ class RefundService extends BaseService
      *
      * @param string $authority
      * @return array|mixed
-     * @throws ZarinpalException
+     * @throws ZarinpalException|ServiceUnavailable
      */
     public function refund(string $authority)
     {
         $parameters = [
             'authority' => $authority
         ];
+
+        if (App::environment('local'))
+            throw new ServiceUnavailable('refund ability is available only in production environment.');
+        if (App::isDownForMaintenance())
+            throw new ServiceUnavailable('refund ability is not available when application is under maintenance.');
 
         return $this->response($this->jsonRequest($parameters));
     }

@@ -2,6 +2,7 @@
 
 namespace RahmatWaisi\Zarinpal\Services\Payment;
 
+use Illuminate\Support\Facades\App;
 use RahmatWaisi\Zarinpal\Exceptions\ZarinpalException;
 use RahmatWaisi\Zarinpal\Services\BaseService;
 
@@ -77,6 +78,8 @@ class AuthorityService extends BaseService
      */
     public function url(): string
     {
-        return $this->getConfigKey('pol.apis.authority');
+        return App::environment('local')
+            ? $this->getConfigKey('zarinpal.sandbox.authority')
+            : $this->getConfigKey('zarinpal.apis.authority');
     }
 }

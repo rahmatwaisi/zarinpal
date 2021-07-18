@@ -2,6 +2,7 @@
 
 namespace RahmatWaisi\Zarinpal\Services\Payment;
 
+use Illuminate\Support\Facades\App;
 use RahmatWaisi\Zarinpal\Exceptions\ZarinpalException;
 use RahmatWaisi\Zarinpal\Services\BaseService;
 
@@ -66,6 +67,8 @@ class VerificationService extends BaseService
      */
     public function url(): string
     {
-        return $this->getConfigKey('zarinpal.apis.verify');
+        return App::environment('local')
+            ? $this->getConfigKey('zarinpal.sandbox.verify')
+            : $this->getConfigKey('zarinpal.apis.verify');
     }
 }

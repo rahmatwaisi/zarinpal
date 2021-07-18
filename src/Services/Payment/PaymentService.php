@@ -2,6 +2,7 @@
 
 namespace RahmatWaisi\Zarinpal\Services\Payment;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 
 class PaymentService
@@ -36,6 +37,8 @@ class PaymentService
      */
     public function url(): string
     {
-        return config('zarinpal.apis.payment');
+        return App::environment('local')
+            ? $this->getConfigKey('zarinpal.sandbox.payment')
+            : $this->getConfigKey('zarinpal.apis.payment');
     }
 }
