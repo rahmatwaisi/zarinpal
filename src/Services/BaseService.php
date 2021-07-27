@@ -105,8 +105,15 @@ abstract class BaseService
         if ($response->getStatusCode() == Response::HTTP_OK) {
             if ($response->getBody()) {
                 $result = json_decode($response->getBody()->getContents());
-                if (in_array($result->code, [ZarinpalResponseCode::SUCCESS, ZarinpalResponseCode::VERIFIED])) {
-                    return $this->valuesOf($result);
+                if (isset($result->data) && !empty($result->data)){
+                    $result = $result->data;
+                    if (in_array($result->code, [ZarinpalResponseCode::SUCCESS, ZarinpalResponseCode::VERIFIED])) {
+                        return $this->valuesOf($result);
+                    }
+                    throw new ZarinpalException($result->code);
+                }elseif(isset($result->errors) && !empty($result->errors)){
+                    $result = $result->errors;
+                    throw new ZarinpalException($result->code);
                 }
                 throw new ZarinpalException($result->code);
             }
