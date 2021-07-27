@@ -4,9 +4,12 @@ namespace RahmatWaisi\Zarinpal\Services\Payment;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
+use RahmatWaisi\Zarinpal\Traits\GetConfigKey;
 
 class PaymentService
 {
+    use GetConfigKey;
+
     /**
      * Redirects user to payment page
      *
